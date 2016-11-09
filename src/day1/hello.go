@@ -1,9 +1,9 @@
 // hello.go
-package main
+package xn
 
 import "fmt"
 
-func main() {
+func HelloWorld() {
 	var x int
 	x = 10
 	fmt.Println(x)
