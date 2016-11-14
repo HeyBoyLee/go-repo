@@ -1,0 +1,12 @@
+package JM
+
+const (
+	APPID = "001"
+	APPKEY = "f804de3b53bb42860153bb4934780000"
+	VERSION = "v1"
+	IP = "10.232.46.11"
+	URL = "http://joymakeit.ticp.net:8888"
+	AUTH_PATH = "/AUTH"
+	CONSUBMIT_PATH = "/CONSUBMIT"
+	SCANSUBMIT_PATH = "/SCANSUBMIT"
+)
