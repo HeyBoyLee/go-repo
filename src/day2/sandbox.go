@@ -31,5 +31,5 @@ func main() {
 	fmt.Printf(f , z , z)
 	fmt.Printf("%s" , f)
 	xn.HelloWorld()
-	xn.GetWorld()
+	//xn.GetWorld()
 }

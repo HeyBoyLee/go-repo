@@ -34,7 +34,7 @@ func HttpGet() {
 	fmt.Println(string(body))
 }
 
-func HttpPost(url string, params string){
+func HttpPost(url string, params string) string{
 	fmt.Println(url)
 	client := &http.Client{}
 	// - 1
@@ -52,4 +52,5 @@ func HttpPost(url string, params string){
 	}
 
 	fmt.Println(string(body))
+	return string(body)
 }
