@@ -14,8 +14,14 @@ type BaseJsonBean struct {
 	Message string      `json:"message"`
 }
 
-func httpGet() {
-	resp, err := http.Get("http://127.0.0.1:8001")
+type PersonInfo_t struct {
+	Name    string         `json:"name"`
+	Friend    interface{} `json:"friend"`
+	Age string      `json:"age"`
+}
+
+func httpGet(){
+	resp, err := http.Get("http://127.0.0.1:3000/end") // nodejs : koa/index.js
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -26,6 +32,15 @@ func httpGet() {
 
 	}
 	fmt.Println(string(body))
+	res:= string(body)
+	result := PersonInfo_t{}
+	json.Unmarshal([]byte(res) , &result)
+	fmt.Println(result.Name)
+	fmt.Println(result.Age)
+	fmt.Printf("%T\n" , result.Friend)
+	c := result.Friend.(map[string]interface{})
+	fmt.Println(c["name"].(string))
+	fmt.Println(c["age"].(string))
 }
 
 func httpPost(){
@@ -58,5 +73,5 @@ func httpPost(){
 }
 
 func main(){
-	httpPost()
+	httpGet()
 }
