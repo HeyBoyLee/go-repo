@@ -1,12 +1,13 @@
 package JM
 
 const (
-	APPID = "001"
-	APPKEY = "f804de3b53bb42860153bb4934780000"
-	VERSION = "v1"
-	IP = "10.232.46.11"
-	URL = "http://joymakeit.ticp.net:8888"
-	AUTH_PATH = "/AUTH"
+	APPID = "yvHW4dGMRMakq3lPMggBVw"
+	APPKEY = "E1oTJ03jSwOG_m-u3YZVOw"
+	VERSION = "2.0"
+	IP = "210.12.122.139"
+	URL = "http://location.joymake.com:8888"
+	AUTH_PATH = "/sync/auth"
 	CONSUBMIT_PATH = "/CONSUBMIT"
-	SCANSUBMIT_PATH = "/SCANSUBMIT"
+	SCANSUBMIT_PATH = "/sync/scansubmit"
+	MARK = "miui-"
 )

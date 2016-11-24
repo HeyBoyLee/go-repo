@@ -7,6 +7,8 @@ import (
 	"strings"
 	"sort"
 	"crypto/sha1"
+	"crypto/md5"
+	"encoding/hex"
 )
 
 func GenerateSignature(arr []string) string{
@@ -16,8 +18,14 @@ func GenerateSignature(arr []string) string{
 	h := sha1.New()
 	h.Write([]byte(content))
 	fmt.Println("------")
-	sign := fmt.Sprintf("%x\n" , h.Sum(nil))
+	sign := fmt.Sprintf("%x" , h.Sum(nil))
 	return sign
+}
+
+func GetMd5String(s string) string {
+	h := md5.New()
+	h.Write([]byte(s))
+	return hex.EncodeToString(h.Sum(nil))
 }
 
 func HttpGet() {

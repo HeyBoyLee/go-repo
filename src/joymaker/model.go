@@ -3,6 +3,7 @@ package JM
 import (
 	"gopkg.in/mgo.v2/bson"
 	//"time"
+	"time"
 )
 
 type Position_t struct {
@@ -44,4 +45,5 @@ type LocComputeLog_t struct {
 	//Ts time.Time
 	//Sg string
 	//Uid string
+	UpdatedAt time.Time
 }
