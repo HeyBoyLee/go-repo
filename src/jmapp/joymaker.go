@@ -168,13 +168,9 @@ func cronJob(){
 				bPass, token = getAuth()
 				if bPass {
 					err = scanSubmit(token , &value)
-				}
-				if err == 0 {
-					continue
+					break;
 				}
 			}
-		}else if err != -101 && err != 0{
-			break
 		}
 	}
 	//2 , 接入定位提交

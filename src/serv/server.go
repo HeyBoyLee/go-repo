@@ -8,9 +8,7 @@ import (
 
 type Hello struct{}
 
-func (h Hello) ServeHTTP(
-w http.ResponseWriter,
-r *http.Request) {
+func (h Hello) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello!")
 }
 
