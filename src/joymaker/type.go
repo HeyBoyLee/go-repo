@@ -24,24 +24,24 @@ type CommonResultInfo_t struct {
 	Data 	AuthResultInfo_t		`json:"data"`
 }
 
-//type CommonResultTest_t struct {
-//	Code	int8					`json:"code"`
-//	Msg 	string				`json:"msg"`
-//	Data 	interface{}		`json:"data"`
-//	//Data 	AuthResultInfo_t		`json:"data"`
-//}
-//
-//type AuthResultData interface {
-//	GetAuthData() string
-//}
-//
-//type SubmitResultData interface {
-//	GetSubmitData() ScanResultInfo_t
-//}
-//
-//func (authResult *AuthResultInfo_t) GetAuthData() string{
-//	return authResult.Token
-//}
+type CommonResultTest_t struct {
+	Code	int8					`json:"code"`
+	Msg 	string				`json:"msg"`
+	Data 	interface{}		`json:"data"`
+	//Data 	AuthResultInfo_t		`json:"data"`
+}
+
+type AuthResultData interface {
+	GetAuthData() string
+}
+
+type SubmitResultData interface {
+	GetSubmitData() ScanResultInfo_t
+}
+
+func (authResult *AuthResultInfo_t) GetAuthData() string{
+	return authResult.Token
+}
 
 type ConnectInfo_t struct {
 	ApMac string										`json:"apMAC"`
