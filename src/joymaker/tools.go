@@ -28,8 +28,8 @@ func GetMd5String(s string) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-func HttpGet() {
-	resp, err := http.Get("http://127.0.0.1:8001")
+func HttpGet(url string) (bool , string){
+	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -40,6 +40,7 @@ func HttpGet() {
 
 	}
 	fmt.Println(string(body))
+	return false , string(body)
 }
 
 func HttpPost(url string, params string) string{

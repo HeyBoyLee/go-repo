@@ -7,7 +7,11 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"time"
+	"runtime/pprof"
 	_ "github.com/robfig/cron"
+	"flag"
+	"os"
+	"log"
 )
 
 type dbInfo struct{
@@ -17,6 +21,7 @@ type dbInfo struct{
 }
 var (
 	db *dbInfo
+  cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
 )
 func connectDB(){
 	db = &dbInfo{}
@@ -37,7 +42,7 @@ func disConnectDB(){
 }
 
 func getAuth() (bool, string) {
-	params := []string{JM.APPID, JM.APPKEY, JM.IP}
+	params := []string{JM.APPID, JM.APPKEY}
 	sign := JM.GenerateSignature(params)
 
 	bean := JM.AuthInfo_t{
@@ -137,6 +142,8 @@ func scanSubmit(t string , value *JM.LocComputeLog_t) int {
 	return result.Code
 }
 
+
+
 func buildPoiLog(s JM.ScanResultInfo_t) bson.M{
 	return bson.M{
 		"unitId":s.UnitId,
@@ -180,6 +187,16 @@ func cronJob(){
 }
 
 func main(){
+
+	flag.Parse()
+	if *cpuprofile != "" {
+		f, err := os.Create(*cpuprofile)
+		if err != nil {
+			log.Fatal(err)
+		}
+		pprof.StartCPUProfile(f)
+		defer pprof.StopCPUProfile()
+	}
 	connectDB()
 	cronJob()
 	//c := cron.New()
